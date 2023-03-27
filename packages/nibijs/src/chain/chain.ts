@@ -73,11 +73,15 @@ export class CustomChain implements Chain {
   }
 
   _endptTm = (): string => {
+    if(this.endptTm)
+      return this.endptTm
     const { nickname, number: chainNumber } = this.chainIdParts
     return `https://rpc.${nickname}-${chainNumber}.nibiru.fi`
   }
 
   _endptRest = (): string => {
+    if(this.endptRest)
+      return this.endptRest
     const { nickname, number: chainNumber } = this.chainIdParts
     return `https://lcd.${nickname}-${chainNumber}.nibiru.fi`
   }
